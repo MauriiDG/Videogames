@@ -1,0 +1,33 @@
+.home {
+    background-color: rgb(74, 69, 69);
+}
+
+.container {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    justify-items: center;
+}
+
+.homeButtons {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+    margin-left: 4rem;
+   
+}
+
+.button {
+    font-size: 1em;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0.3em;
+    border-radius: 8px;
+    background-color: white;
+    width: 8em;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #051133;
+    color:rgba(255, 255, 255, 0.419);
+}

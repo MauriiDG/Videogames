@@ -1,43 +1,50 @@
 import React from 'react'
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { getGames } from '../redux/actions';
+import { GET_GAMES } from '../redux/actions';
 import './SearchBar.css'
 
-function SearchBar() {
-
-    const [name, setName] = useState("");
+function SearchBar({ games, searchGame }) {
+    const [game, setGame] = useState("");
 
     const handleChange = (event) => {
-        setName(event.target.value)
+        setGame(event.target.value)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-     //   getGames(this.state.name)
+        searchGame(game);
     }
 
     return (
-        
+        <div>
             <form onSubmit={handleSubmit}>
                 <div className='searchbar'>
                     <input
                         type='text'
-                        value={name}
+                        value={game}
                         onChange={handleChange}
                         placeholder='Search Game' />  
                 </div>
                 <button type='submit'>Search</button>
-
+                
             </form>
-         
+            
+        </div>
   )
+}
+
+function mapStateToProps(state) {
+    return {
+        games: state.gameLoaded
+    }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        getGames: name => dispatch(getGames(name))
+        searchGame: game => dispatch({ type: GET_GAMES, payload: game })
     }
 }
 
-export default connect(null, mapDispatchToProps)(SearchBar)
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)

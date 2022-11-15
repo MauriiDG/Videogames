@@ -1,29 +1,24 @@
 import React from 'react'
 import './Game.css'
-
-
+import axios from 'axios'
 
 function Game(props) {
 
-    const baseurl = `https://api.rawg.io/api/games/${props.match.params.id}?key=736cfa1f76a743008958ce3e27b1408f`
+    const baseurl = `http://localhost:3001/videogame/${props.match.params.id}`
 
     const [game, setGame] = React.useState(null)
 
     React.useEffect(() => {
-        fetch(baseurl).then((response) => {
-            response.json().then(data => {
-                setGame(data)
-            })
-            
-        } )
-    }, [])
+        axios.get(baseurl)
+            .then(response => setGame(response.data))
+    })
 
     if (!game) return null;
 
   return (
-    <div>
+    <div className='container'>
         <h1>{game.name}</h1>
-        <img src={game.background_image} alt={game.name}/>
+        <img src={game.image} alt={game.name}/>
         <p dangerouslySetInnerHTML={{__html: game.description}} />
         <span>
             Genres: {game.genres.map(genre => (
@@ -35,8 +30,8 @@ function Game(props) {
         <ul>
             Released: {game.released}
             Rating: {game.rating}
-            Available on: {game.platforms.map(p => (
-                p.platform.name
+            Available on: {game.platforms.map(platform => (
+                platform.name
             ))}
         </ul>
     </div>

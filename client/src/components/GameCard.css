@@ -1,0 +1,70 @@
+.gameCard{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    
+    min-height: 18em;
+    height: auto;
+    width: 18em;
+
+    background-color: #010617;
+    border-radius: 1em;
+    padding: 0.5em;
+    margin: 0.5em;
+}
+
+.gameCard:hover {
+    background-color: #051133;
+}
+
+.gameName{
+    font-size: 1.6em;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.gameCard:link {
+    color:rgba(255, 255, 255, 0.419);
+    text-decoration: none;
+}
+
+.gameCard:visited {
+    color:rgba(255, 255, 255, 0.419);
+    text-decoration: none;
+}
+
+
+
+.gameImage {
+    height: 16em;
+    width: auto;
+    display: inline-block;
+}
+
+.imgContainer {
+    height: 17em;
+    width: 17em;
+    overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+}
+
+.gameGenreContainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: left;
+    text-align: center;
+  
+
+}
+
+.gameGenre {
+    color: rgba(255, 255, 255, 0.579);
+    text-align: left;
+    padding-right: 6.5em;
+    font-size: 1.2em;
+    font-family: Arial, Helvetica, sans-serif;
+}

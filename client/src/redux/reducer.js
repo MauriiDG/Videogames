@@ -1,13 +1,13 @@
-import { GET_GAMES } from "./actions";
-
 const initialState = {
-    gameName: {}
+    gameDetail: {},
+    gameLoaded: []
 }
 
 export function rootReducer(state = initialState, action) {
-    if(action.type === GET_GAMES) {
+    if (action.type === 'GET_GAMES') {
         return {
             ...state, 
+            gameLoaded: action.payload  
         }
     }
 

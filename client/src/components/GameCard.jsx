@@ -4,17 +4,19 @@ import './GameCard.css'
 
 function GameCard({game}) {
   return (
-    <div>
-        <Link to={`game/${game.id}`}>{game.name}</Link>
-        <h2>{game.background_image}</h2>
-        <ul>
+    <Link to={`game/${game.id}`} className='gameCard'>
+        <div  className='gameName'>{game.name}</div>
+        <div className='imgContainer'>
+        <img src={game.image} alt={game.name} className='gameImage'></img>
+        </div>
+        <ul className='gameGenreContainer'>
             {game.genres.map(genre => (
-                <li key={genre.id}>
+                <li key={genre.id} className='gameGenre'>
                     {genre.name}
                 </li>
             ))}
         </ul>
-    </div>
+    </Link>
   )
 }
 
