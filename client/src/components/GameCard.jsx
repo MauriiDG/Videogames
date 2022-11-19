@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import './GameCard.css'
 
 function GameCard({game}) {
+
+
+  
+
   return (
     <Link to={`game/${game.id}`} className='gameCard'>
         <div  className='gameName'>{game.name}</div>

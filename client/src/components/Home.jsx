@@ -1,59 +1,63 @@
 import React from 'react'
 import './Home.css'
 import GameCard from './GameCard'
-import axios from 'axios'
 import GenreFilter from './GenreFilter'
-
-
+import { useDispatch, useSelector } from 'react-redux'
+import { getGames, getNextPage, getPrevPage } from '../redux/actions'
+import OrderBy from './OrderBy'
+import Loading from './Loading'
 
 function Home() {
-    
-    
-    const [games, setGames] = React.useState(null);
 
-    const [currentPage, setCurrentPage] = React.useState(1);
+    const dispatch = useDispatch();
+    
+    const store = useSelector((store) => store);
 
-    const [selectedGenre, setSelectedGenre] = React.useState(null);
 
     React.useEffect(() => {
-      axios.get(`http://localhost:3001/videogames/${currentPage}${selectedGenre !== null ? `&genres=${selectedGenre}` : '' }`)
-      .then(response => setGames(response.data))
-    }, [currentPage, selectedGenre])
-
-    if (!games) return null;
-
+      if(store.games === null) {
+        dispatch(getGames());
+      }
+    })
+  
     const prevPage = () => {
-      if( currentPage > 1) {
-        setCurrentPage( currentPage - 1);
+      if( store.hasPrev ) {
+        dispatch(getPrevPage({page: store.page, genre: store.genre, search: store.search}));
       }
     }
  
     const nextPage = () => {
-      setCurrentPage( currentPage + 1);
+      if( store.hasNext ){
+        dispatch(getNextPage({page: store.page, genre: store.genre, search: store.search}));
+      }
     }
 
-    const handleSelected = (genre) => {
-      setSelectedGenre(genre)
-    }
+
+  if (store.loading) {
+    return <Loading/>
+  }
     
-  return (
-    <div className='home'>
-      <div className='homeButtons'>
-        <button onClick={prevPage} className='button'>
-          Prev
-        </button>
-        <button onClick={nextPage} className='button'>
-          Next
-        </button>  
-        <GenreFilter selected={handleSelected}/> 
-      </div> 
-      <div className='container'>
-      {games.map(game => (
-          <GameCard key={game.id} game={game} />
-        ))}
-      </div> 
-    </div>
-  )
+
+    return (
+      <div className='home'>
+        <div className='homeButtons'>
+          <button onClick={prevPage} disabled={!store.hasPrev} className='button'>
+            Prev Page
+          </button>
+          <button onClick={nextPage} disabled={!store.hasNext} className='button'>
+            Next Page
+          </button>  
+          <GenreFilter/> 
+          <OrderBy/>
+        </div> 
+        <div className='container'>
+        {store.games.map(game => (
+            <GameCard key={game.id} game={game} />
+          ))}
+        </div> 
+      </div>
+    )
+  
 }
 
 export default Home

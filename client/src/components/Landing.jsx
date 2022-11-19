@@ -11,7 +11,7 @@ function Landing() {
   useEffect(() => {
     setTimeout(() => {
       history.push('/home')
-    }, 5000)
+    }, 3500)
   })
 
   return (

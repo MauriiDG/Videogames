@@ -1,31 +1,36 @@
-import axios from 'axios';
-import { useState, useEffect } from 'react'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getGamesByGenre, getGenres } from '../redux/actions';
 import './GenreFilter.css';
 
-function GenreFilter(props) {
+function GenreFilter() {
 
-  const [genres, setGenres] = useState(null);
+  const dispatch = useDispatch();
 
+  const genres = useSelector((store) => store.genres)
+  
+  const genre = useSelector((store) => store.genre)
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/genres`)
-    .then(response => setGenres(response.data))
-  }, [])
+    if (genres == null) {
+      dispatch(getGenres())
+    }
+  })
 
   if (!genres) return null;
 
   const handleChange = (event) => {
-    props.selected(event.target.value);
+    dispatch(getGamesByGenre(event.target.value));
 }
 
   return (
     <div>
-    <select onChange={handleChange} className='selector'>
-      <option value={0}>Select Genre</option>
-      {genres.map(genre => ( 
-        <option key={genre.id} value={genre.id}>{genre.name}</option>
-      ))}
-    </select>
+      <select onChange={handleChange} value={genre ? genre:0} className='selector'>
+        <option value={0}>Select Genre</option>
+        {genres.map(genre => ( 
+          <option key={genre.id} value={genre.id}>{genre.name}</option>
+        ))}
+      </select>
     </div>
   )
 }

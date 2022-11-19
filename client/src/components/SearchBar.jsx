@@ -1,10 +1,13 @@
 import React from 'react'
 import { useState } from 'react';
 import { connect } from 'react-redux';
-import { GET_GAMES } from '../redux/actions';
+import { searchGames } from '../redux/actions';
 import './SearchBar.css'
 
-function SearchBar({ games, searchGame }) {
+function SearchBar({ search }) {
+
+
+
     const [game, setGame] = useState("");
 
     const handleChange = (event) => {
@@ -13,20 +16,20 @@ function SearchBar({ games, searchGame }) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        searchGame(game);
+        search(game)
     }
 
     return (
-        <div>
+        <div className='searchbar'>
             <form onSubmit={handleSubmit}>
-                <div className='searchbar'>
+                <div>
                     <input
                         type='text'
                         value={game}
                         onChange={handleChange}
                         placeholder='Search Game' />  
                 </div>
-                <button type='submit'>Search</button>
+                <button type='submit' className='searchButton'>Search</button>
                 
             </form>
             
@@ -42,7 +45,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
     return {
-        searchGame: game => dispatch({ type: GET_GAMES, payload: game })
+        search: game => dispatch(searchGames(game))
     }
 }
 
