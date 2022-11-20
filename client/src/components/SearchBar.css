@@ -3,4 +3,8 @@
     padding-left: 1em;
     font-size: 1.5em;
     font-weight: bolder;
+    display: block;
+    padding-top: 0.7em;
+    padding-right: 0.5em;
 }
+

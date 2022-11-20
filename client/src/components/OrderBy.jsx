@@ -10,7 +10,7 @@ function OrderBy() {
 
     const loading = useSelector((store) => store.loading)
 
-    const order = useSelector((store) => store.order)
+    
     if (loading) {
     return <Loading />
   }

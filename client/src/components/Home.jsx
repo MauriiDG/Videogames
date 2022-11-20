@@ -15,7 +15,7 @@ function Home() {
 
 
     React.useEffect(() => {
-      if(store.games === null) {
+      if(store.games == null) {
         dispatch(getGames());
       }
     })

@@ -23,8 +23,10 @@ function Navbar() {
                     Add New Game
                 </Link>
             </div>
-        <SearchBar />
-       </nav>
+
+            <SearchBar />
+            
+        </nav>
     </div>
   )
 }

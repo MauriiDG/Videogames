@@ -10,7 +10,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.get('/videogames', (req, res) => { 
-    getVideogames(req.query.page, req.query.genre, req.query.sort, req.query.search)
+    getVideogames(req.query.page, req.query.genre, req.params.sort, req.query.search)
         .then(videogames => res.json(videogames))
         .catch(error => {
             res.status = 500;

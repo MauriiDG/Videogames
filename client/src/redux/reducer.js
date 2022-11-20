@@ -12,14 +12,14 @@ const initialState = {
     hasNext: false,
     hasPrev: false,
     addNewGame: null,
-    order: null
 }
 
 export const rootReducer = createReducer(initialState, (builder) => {
      builder
         .addCase(getGames.pending, (state, action) => {
             state.loading = true;
-            state.games = [];
+            state.games = null;
+            state.gameDetail = null;
         })
         .addCase(getGames.fulfilled, (state, action) => {
             state.loading = false;
@@ -28,16 +28,16 @@ export const rootReducer = createReducer(initialState, (builder) => {
             state.hasPrev = action.payload.hasPrev;
         })
         .addCase(getGame.pending, (state, action) => {
-            state.gameDetail = null
+            state.gameDetail = null;
         })
         .addCase(getGame.fulfilled, (state, action) => {
-            state.gameDetail = action.payload
+            state.gameDetail = action.payload;
         })
         .addCase(getGenres.pending, (state, action) => {
-            state.genres = null
+            state.genres = null;
         })
         .addCase(getGenres.fulfilled, (state, action) => {
-            state.genres = action.payload
+            state.genres = action.payload;
         })
         .addCase(getGamesByGenre.pending, (state, action) => {
             state.loading = true;
@@ -82,7 +82,6 @@ export const rootReducer = createReducer(initialState, (builder) => {
             state.games = action.payload.videogames;
             state.hasNext = action.payload.hasNext;
             state.hasPrev = action.payload.hasPrev;
-            state.order = action.payload.order;
         })
         .addCase(searchGames.pending, (state, action) => {
             state.loading = true;

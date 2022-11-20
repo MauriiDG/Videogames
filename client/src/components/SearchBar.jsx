@@ -22,14 +22,14 @@ function SearchBar({ search }) {
     return (
         <div className='searchbar'>
             <form onSubmit={handleSubmit}>
-                <div>
+                <div className=''>
                     <input
                         type='text'
                         value={game}
                         onChange={handleChange}
                         placeholder='Search Game' />  
+                    <button type='submit' className='searchButton'>Search</button>
                 </div>
-                <button type='submit' className='searchButton'>Search</button>
                 
             </form>
             

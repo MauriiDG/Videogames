@@ -11,8 +11,9 @@ function Game(props) {
     const game = useSelector((store) => store.gameDetail)
 
 
+
     React.useEffect(() => {
-        if (game == null) {
+        if (game === null) {
             dispatch(getGame(props.match.params.id))
         }
     })
