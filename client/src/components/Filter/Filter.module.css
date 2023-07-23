@@ -1,0 +1,30 @@
+.titles {
+    font-size: 25px;
+    font-weight: bold;
+    color: azure;
+    margin-top: 50px;
+    margin-bottom: 15px;
+}
+
+.divSource {
+    justify-content: space-around;
+}
+
+.source {
+    background-color: #dedef5;
+    color: rgb(0, 0, 0);
+    border-color: rgb(146, 74, 212);
+    font-family: serif;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.source:hover {
+    font-weight: bolder;
+}
+.select {
+    width: 180px;
+    background-color: #dedef5;
+    border-color: rgb(146, 74, 212);
+    border-width: 2px;
+}

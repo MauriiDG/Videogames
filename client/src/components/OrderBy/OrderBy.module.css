@@ -1,0 +1,34 @@
+.titles {
+    font-size: 25px;
+    font-weight: bold;
+    color: azure;
+    margin-top: 100px;
+    margin-bottom: 15px;
+}
+
+.divName {
+    margin-top: 5px;
+    text-align: start;
+    margin-left: 38px;
+}
+
+.subTitles {
+    color: azure;
+    font-weight: bold;
+    text-align: start;
+    padding-right: 10px;
+}
+
+.divRating {
+    margin-top: 7px;
+    text-align: start;
+    margin-bottom: 15px;
+    margin-left: 38px;
+}
+
+.selects {
+    width: 100px;
+    background-color: #dedef5;
+    border-color: rgb(146, 74, 212);
+    border-width: 2px;
+}

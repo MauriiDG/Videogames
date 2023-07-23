@@ -1,0 +1,63 @@
+.div {
+    background-color: #2E0A76;
+    border: 2px solid #ea00ff;
+    border-radius: 5%;
+    width: 260px;
+    height: 315px;
+}
+
+.title {
+    font-family: "Roboto",sans-serif;
+    font-size: 18px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: bold;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.imgs {
+    max-width: 100%;
+    border: 1px solid #ea00ff;
+    aspect-ratio: 16 / 9;
+    object-fit: fill;
+}
+
+.afterImg {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text {
+    font-family: "Roboto",sans-serif;
+    font-size: 14px;
+    color: white;
+    padding-left: 13px;
+    justify-content: start;
+}
+
+.rating {
+    margin-right: 13px;
+    padding: 1.5px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: white;
+    border-radius: 10%;
+    border: 1px solid #ea00ff;
+    height: 25px;
+}
+
+.btnDelete {
+    background-color: #ea00ff;
+    border-color: #2E0A76;
+    width: 20%;
+    height: 28px;
+    color: #2E0A76;
+    font-weight: bold;
+    cursor: pointer;
+}
