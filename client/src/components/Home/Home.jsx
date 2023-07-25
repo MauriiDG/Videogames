@@ -48,7 +48,7 @@ export default function Home() {
         setCurrentPage(1);
         setSource('All');
         setGenreChange(e.target.value);
-        setOrder('Order' + e.target.value)
+        setOrder(e.target.value)
     }
 
     function handlerCreated(e) {
@@ -56,7 +56,7 @@ export default function Home() {
         setSource(e);
         setCurrentPage(1);
         setGenreChange('');
-        setOrder('Order' + e)
+        setOrder(e)
     }
 
     function handlerByName(e) {
@@ -64,7 +64,7 @@ export default function Home() {
         setCurrentPage(1);
         setRatingChange('');
         setNameChange(e.target.value);
-        setOrder('Order' + e.target.value)
+        setOrder(e.target.value)
     }
 
     function handlerByRating(e) {
@@ -72,7 +72,7 @@ export default function Home() {
         setCurrentPage(1);
         setNameChange('');
         setRatingChange(e.target.value);
-        setOrder('Order' + e.target.value)
+        setOrder(e.target.value)
     }
 
     return (
